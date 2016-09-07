@@ -14,8 +14,10 @@ spawning it in the following items:
 /spawnitem ram2
 /spawnitem gpu4
 /spawnitem harddrive
+/spawnitem monitor1
 
 Once that's done, place them in your computer in whatever order you like.
+Place the monitor close enough to your computer that you're able to use the wiring tool to connect the two.
 Restart your game. If done successfully, you should see a new folder pop up in your
 storage/computers directory. Copy the contents of the folder "StarOS" into this if you
 want to get straight to programming, or feel free to make your own OS from here.
