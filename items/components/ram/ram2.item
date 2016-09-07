@@ -1,0 +1,10 @@
+{
+  "itemName" : "ram2",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "ram2.png",
+  "maxStack" : 1,
+  "memory" : 2,
+  "description" : "Two megabytes of RAM. It's a start.",
+  "shortdescription" : "RAM"
+}

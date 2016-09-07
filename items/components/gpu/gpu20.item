@@ -1,0 +1,10 @@
+{
+  "itemName" : "gpu20",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "gpu20.png",
+  "maxStack" : 1,
+  "bits" : 20,
+  "description" : "A 20-bit GPU. Very modern.",
+  "shortdescription" : "GPU"
+}

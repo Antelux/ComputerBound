@@ -1,0 +1,10 @@
+{
+  "itemName" : "gpu12",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "gpu12.png",
+  "maxStack" : 1,
+  "bits" : 12,
+  "description" : "A 12-bit GPU. Halfway there.",
+  "shortdescription" : "GPU"
+}

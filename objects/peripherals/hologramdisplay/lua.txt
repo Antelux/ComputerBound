@@ -1,0 +1,2 @@
+Similar in API to a GPU, with the main difference being available color;
+You can only have one color at a time, and can only change the brightness of said color.

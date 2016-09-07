@@ -1,0 +1,10 @@
+{
+  "itemName" : "ram4",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "ram4.png",
+  "maxStack" : 1,
+  "memory" : 4,
+  "description" : "Four megabytes of RAM. Now we're talkin'.",
+  "shortdescription" : "RAM"
+}

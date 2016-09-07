@@ -1,0 +1,9 @@
+{
+  "itemName" : "harddrive",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "harddrive.png",
+  "maxStack" : 1,
+  "description" : "A Hard Drive. Allows for a computer to store data.",
+  "shortdescription" : "Hard Drive"
+}

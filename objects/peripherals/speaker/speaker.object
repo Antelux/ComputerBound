@@ -1,0 +1,24 @@
+{
+  "objectName" : "speaker",
+  "rarity" : "Common",
+  "category" : "wire",
+  "description" : "A small speaker.",
+  "shortdescription" : "Speaker",
+  "race" : "generic",
+
+  "inventoryIcon" : "speakericon.png",
+  "orientations" : [
+    {
+      "dualImage" : "speaker.png:<color>",
+      "imagePosition" : [0, 0],
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "inputNodes" : [ [ 0, 0 ] ],
+
+  "animation" : "/objects/computers/sound.animation",
+  "scripts" : [ "/objects/peripherals/speaker/speaker.lua" ],
+  "scriptDelta" : 1
+}

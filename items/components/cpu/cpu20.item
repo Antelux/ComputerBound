@@ -1,0 +1,10 @@
+{
+  "itemName" : "cpu20",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "cpu20.png",
+  "maxStack" : 1,
+  "deltaTime" : 3,
+  "description" : "A 20UPs CPU. Slow but useful.",
+  "shortdescription" : "CPU"
+}

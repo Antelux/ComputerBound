@@ -1,0 +1,10 @@
+{
+  "itemName" : "gpu16",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "gpu16.png",
+  "maxStack" : 1,
+  "bits" : 16,
+  "description" : "A 16-bit GPU. That's like, 65k colors.",
+  "shortdescription" : "GPU"
+}

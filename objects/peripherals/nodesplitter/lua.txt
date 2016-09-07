@@ -1,0 +1,4 @@
+--connects to input node--
+
+essentially an object which has many nodes of its own, each of which
+can be controlled by the host computer.

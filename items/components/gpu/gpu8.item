@@ -1,0 +1,10 @@
+{
+  "itemName" : "gpu8",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "gpu8.png",
+  "maxStack" : 1,
+  "bits" : 8,
+  "description" : "An 8-bit GPU. A whopping 255 colors!",
+  "shortdescription" : "GPU"
+}

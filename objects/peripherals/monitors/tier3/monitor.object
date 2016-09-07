@@ -1,0 +1,31 @@
+{
+  "objectName" : "monitor3",
+  "printable" : false,
+  "rarity" : "Common",
+  "category" : "wire",
+  "description" : "Test!",
+  "shortdescription" : "Monitor T3",
+  "race" : "generic",
+
+  "inventoryIcon" : "monitor.png",
+  "orientations" : [
+    {
+      "dualImage" : "monitor.png:<color>.off",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "inputNodes" : [ [ 1, 1 ] ],
+
+  "scripts" : [ "/objects/peripherals/monitors/driver.lua" ],
+  "scriptDelta" : 0,
+
+  "width" : 320,
+  "height" : 240,
+
+  "interactAction" : "ScriptConsole",
+  "interactData" : "/objects/peripherals/monitors/tier3/monitor.config"
+}

@@ -1,0 +1,9 @@
+{
+  "itemName" : "soundchip",
+  "rarity" : "common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "soundchip.png",
+  "maxStack" : 1,
+  "description" : "A soundchip. Allows for a computer to make sounds.",
+  "shortdescription" : "Sound Chip"
+}
