@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "sand", "count" : 4 },
+    { "item" : "coalore", "count" : 2 }
+  ],
+  "output" : { "item" : "cb_silicon", "count" : 1 },
+  "duration" : 0.15,
+  "groups" : [ "craftingfurnace2", "ingredients", "all" ]
+}

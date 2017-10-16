@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_platinumplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=847f86;666666=b4b3ae;999999=d2d1cd;CCCCCC=e7e7e2",
+  "description" : "A platinum plate.",
+  "shortdescription" : "Platinum Plate",
+  "itemTags" : [ "reagent" ]
+}

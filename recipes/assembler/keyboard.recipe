@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "cb_ironplate", "count" : 2 },
+    { "item" : "cb_pcb", "count" : 1 }
+  ],
+  "output" : { "item" : "cb_keyboard0", "count" : 1 },
+  "duration" : 0.15,
+  "groups" : [ "assembler", "peripherals" ]
+}

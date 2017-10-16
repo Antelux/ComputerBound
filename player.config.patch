@@ -1,0 +1,127 @@
+[	
+	// Objects used to craft
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_siliconcrucible" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_sawmill" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_photolithographer" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_assembler" }
+	},
+
+	// Ore related.
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_silicon" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_siliconboule" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_siliconwafer" }
+	},
+
+
+
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_zincbar" }
+	},
+
+
+
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_phosphor" }
+	},
+
+
+
+	// Items
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_copperplate" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_durasteelplate" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_goldplate" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_ironplate" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_platinumplate" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_silverplate" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_titaniumplate" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_tungstenplate" }
+	},
+
+
+
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_fiberglass" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_fgb" }
+	},
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_electrongun" }
+	},
+
+
+
+	// Peripherals
+	{
+		"op" : "add",
+		"path" : "/defaultBlueprints/tier1/-",
+		"value" : { "item" : "cb_terminal1" }
+	}
+]

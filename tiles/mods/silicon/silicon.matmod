@@ -1,0 +1,20 @@
+{
+  "modId" : 128,
+  "modName" : "silicon",
+  "itemDrop" : "cb_siliconore",
+  "description" : "Silicon ore, used to make electronic components.",
+  "health" : 4,
+  "harvestLevel" : 3,
+  "breaksWithTile" : true,
+
+  "miningSounds" : [ "/sfx/tools/pickaxe_ore.ogg", "/sfx/tools/pickaxe_ore2.ogg" ],
+  "miningParticle" : "orespark",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "silicon.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

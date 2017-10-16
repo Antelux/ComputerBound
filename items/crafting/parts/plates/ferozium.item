@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_feroziumplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=32636b;666666=53acb1;999999=aae6e2;CCCCCC=d8edec",
+  "description" : "A ferozium plate.",
+  "shortdescription" : "Ferozium Plate",
+  "itemTags" : [ "reagent" ]
+}

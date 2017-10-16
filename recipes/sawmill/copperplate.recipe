@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "copperbar", "count" : 1 }
+  ],
+  "output" : {
+    "item" : "cb_copperplate",
+    "count" : 3
+  },
+  "duration" : 1.5,
+  "groups" : [ "sawmill", "craftingstations", "all" ]
+}

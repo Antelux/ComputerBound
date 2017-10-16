@@ -1,0 +1,26 @@
+{
+  "objectName" : "cb_scanner0",
+  "rarity" : "Common",
+  "description" : "I can scan papers and stuff with this.",
+  "shortdescription" : "Scanner",
+  "race" : "generic",
+  "category" : "wire",
+
+  "lightColor" : [230, 233, 234],
+
+  "inventoryIcon" : "icon.png",
+  "orientations" : [
+    {
+      "dualImage" : "pcscanner.png:default.<frame>",
+      "imagePosition" : [0, 0],
+      
+      "frames" : 22,
+      "animationCycle" : 1.0,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "outputNodes" : [ [0, -1] ]
+}

@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_solariumplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=984700;666666=f4a700;999999=fff327;CCCCCC=ffffff",
+  "description" : "A solarium plate.",
+  "shortdescription" : "Solarium Plate",
+  "itemTags" : [ "reagent" ]
+}

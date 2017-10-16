@@ -1,0 +1,8 @@
+{
+	"itemName" : "cb_floppy8(storage)",
+	"rarity" : "common",
+	"category" : "Component: Storage",
+	"inventoryIcon" : "floppy8.png",
+	"description" : "A floppy disk, with an emphasis on 'floppy.'",
+	"shortdescription" : "8-Inch 0.175MB Diskette"
+}

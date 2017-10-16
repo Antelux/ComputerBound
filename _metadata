@@ -1,4 +1,9 @@
 {
-  "name" : "ComputerBound",
-  "path" : "."
+  "name" : "computerbound",
+  "friendlyName" : "Computer Bound",
+  "link" : "http://community.playstarbound.com/threads/computerbound.121176/",
+  "version" : "1.17",
+  "path" : ".",
+  "author" : "Defiance3",
+  "description": "This mod adds in programmable computers to Starbound! Neat, right? And in what language other than Lua."
 }

@@ -1,0 +1,39 @@
+{
+    "objectName" : "cb_sawmill",
+    "objectType" : "container",
+    "colonyTags" : ["crafting"],
+    "rarity" : "Common",
+
+    "description" : "Cuts stuff up because thinner is better! . . probably.",
+    "shortdescription" : "^orange;Sawmill^white;",
+    "race" : "generic",
+    "category" : "crafting",
+
+    "apexDescription" : "We've moved on from this form a torture a few years ago.",
+    "avianDescription" : "We don't normally cut our crystals into flat circles.",
+    "floranDescription" : "Looksss ssharp. Floran think iss perfect!",
+    "glitchDescription" : "Curious. Is it weird I find cutting metal odd?",
+    "humanDescription" : "Guess you can say this is . . cutting edge technology!",
+    "hylotlDescription" : "Our blades are created with a similar sharpness.",
+    "novakidDescription" : "Better keep my distance; don't wanna end up hurt!",
+
+    "inventoryIcon" : "sawmillicon.png",
+    "orientations" : [
+        {
+            "dualImage" : "sawmill.png:<frame>",
+            "imagePosition" : [ -16, 0 ],
+
+            "frames" : 3,
+            "animationCycle" : 0.2,
+
+            "spaceScan" : 0.1,
+            "anchors" : [ "bottom" ]
+        }
+    ],
+
+    "recipeGroup" : "sawmill",
+    "slotCount" : 2,
+    "uiConfig" : "/interface/crafting/sawmill/sawmill.config",
+    "frameCooldown" : 5,
+    "autoCloseCooldown" : 3600
+}

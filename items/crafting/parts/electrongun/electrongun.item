@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_electrongun",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "electrongun.png",
+  "description" : "Used to produce images on a CRT.",
+  "shortdescription" : "Electron gun",
+  "itemTags" : [ "reagent" ]
+}

@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_zincore",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "zincore.png",
+  "description" : "Zinc ore.",
+  "shortdescription" : "Zinc Ore",
+  "itemTags" : [ "reagent" ]
+}

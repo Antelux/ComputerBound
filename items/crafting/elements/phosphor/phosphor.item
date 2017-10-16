@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_phosphor",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "phosphor.png?replace;333333=b7b7b7;666666=c0c0c0;999999=d7d7d7;cccccc=e2e2e2",
+  "description" : "This stuff has a faint glow to it.",
+  "shortdescription" : "Phosphor",
+  "itemTags" : [ "reagent" ]
+}

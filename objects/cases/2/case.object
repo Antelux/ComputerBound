@@ -1,0 +1,39 @@
+{
+  "objectName" : "cb_case2",
+  "rarity" : "Common",
+  "objectType" : "container",
+  "tooltipKind" : "container",
+  "category" : "wire",
+  "description" : "A computer case, professional in quality.",
+  "shortdescription" : "Computer T3",
+  "race" : "generic",
+
+  "inventoryIcon" : "caseicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "case.png:<frame>",
+      "imagePosition" : [0, 0],
+
+      "frames" : 8,
+      "animationCycle" : 1.1,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ],
+
+  //"animation" : "/objects/computers/sound.animation",
+  //"scripts" : [ "/objects/computers/computer.lua" ],
+  //"scriptDelta" : 1,
+
+  "inputNodes" : [ [ 1, -1 ], [ 1, 0 ], [ 1, 1 ], [ 1, 2 ] ],
+  "outputNodes" : [ [ 0, -1 ], [ 0, 0 ], [ 0, 1 ], [ 0, 2 ] ],
+
+  "openSounds" : [ "/sfx/objects/bunkercabinet_open.ogg" ],
+  "closeSounds" : [ "/sfx/objects/bunkercabinet_close.ogg" ],
+  "slotCount" : 9,
+  "uiConfig" : "/interface/chests/chest<slots>.config",
+  "frameCooldown" : 5,
+  "autoCloseCooldown" : 3600
+}

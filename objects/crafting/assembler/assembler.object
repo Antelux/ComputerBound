@@ -1,0 +1,55 @@
+{
+  "objectName" : "cb_assembler",
+  "colonyTags" : ["crafting"],
+  "rarity" : "Legendary",
+  "description" : "For all your case and peripheral needs!",
+  "shortdescription" : "^orange;Assembler^white;",
+  "race" : "generic",
+  "category" : "crafting",
+
+  "interactAction" : "OpenCraftingInterface",
+  "interactData" : {
+    "config" : "/interface/windowconfig/crafting.config",
+    "paneLayoutOverride" : {
+      "windowtitle" : {
+        "title" : "Assembler",
+        "subtitle" : "Fancier version of school glue.",
+        "icon" : {
+          "file" : "/interface/crafting/craftingicon.png"
+        }
+      }
+    },
+    "filter" : [ "assembler" ]
+  },
+  
+  "lightColor" : [62, 89, 89],
+
+  "flickerPeriod" : 0.5,
+  "flickerMinIntensity" : 0.9,
+  "flickerMaxIntensity" : 1,
+  "flickerPeriodVariance" : 0.0,
+  "flickerIntensityVariance" : 0,
+
+  "apexDescription" : "Lets see here. What can I make with this?",
+  "avianDescription" : "People at home would love a machine like this.",
+  "floranDescription" : "Floran usse sssap for thiss before.",
+  "glitchDescription" : "Curious. Perhaps I can make myself a new chassis?",
+  "humanDescription" : "A friend told me cars used to be made like this.",
+  "hylotlDescription" : "The robotic arms move quite efficiently while producing a well made result.",
+  "novakidDescription" : "Gosh darn it . . where did I put the instruction manual!",
+
+  "inventoryIcon" : "assemblericon.png",
+
+  "orientations" : [
+    {
+      "dualImage" : "assembler.png:<color>.<frame>",
+      "imagePosition" : [-16, 0],
+
+      "frames" : 22,
+      "animationCycle" : 1.7,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ]
+}

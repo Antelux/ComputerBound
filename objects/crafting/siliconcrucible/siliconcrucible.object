@@ -1,0 +1,35 @@
+{
+  "objectName" : "cb_siliconcrucible",
+  "colonyTags" : ["crafting"],
+  "rarity" : "Uncommon",
+  "interactAction" : "ScriptPane",
+  "interactData" : "/interface/crafting/siliconcrucible/siliconcrucible.config",
+
+  "description" : "Grows silicon boules. Useful for creating integrated circuits.",
+  "shortdescription" : "^orange;Silicon Crucible^white;",
+  "race" : "generic",
+  "category" : "crafting",
+
+  "apexDescription" : "Ah, yes. A step in creating useful technology.",
+  "avianDescription" : "Us Avians have little need for this.",
+  "floranDescription" : "Thisss getsss sso hot. Bad for Floran!",
+  "glitchDescription" : "Curious. Was my internals made this way?",
+  "humanDescription" : "With this, I can finally make that Atari I've always wanted!",
+  "hylotlDescription" : "I've seen this produce rather stunning crystals.",
+  "novakidDescription" : "I wanted to use this for something . . what was it again?",
+
+  "scripts" : [ "/objects/crafting/siliconcrucible/siliconcrucible.lua" ],
+  "scriptDelta" : 0,
+
+  "inventoryIcon" : "siliconcrucibleicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "siliconcrucible.png:0",
+      "imagePosition" : [-8, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ]
+}

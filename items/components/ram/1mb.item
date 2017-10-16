@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_ram_1mb",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "ram0.png",
+  "description" : "An older model of RAM.",
+  "shortdescription" : "1 MB RAM",
+  "memory" : 1000000
+}

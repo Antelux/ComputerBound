@@ -1,0 +1,9 @@
+{
+  "input" : [ 
+  	{ "item" : "cb_siliconwafer", "count" : 1 },
+  	{ "item" : "cb_pcb", "count" : 1 }
+  ],
+  "output" : { "item" : "stickofram", "count" : 2 },
+  "duration" : 3,
+  "groups" : [ "photolithographer", "craftingstations", "all" ]
+}

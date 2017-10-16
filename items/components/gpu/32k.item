@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_gpu_32k",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "gpu0.png",
+  "description" : "An older model GPU.",
+  "shortdescription" : "GPU - 32k @ 1/2/3/4",
+  "architecture" : "tba"
+}

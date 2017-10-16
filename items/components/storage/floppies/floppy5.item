@@ -1,0 +1,8 @@
+{
+	"itemName" : "cb_floppy5(storage)",
+	"rarity" : "common",
+	"category" : "Component: Storage",
+	"inventoryIcon" : "floppy5.png",
+	"description" : "A floppy disk.",
+	"shortdescription" : "5¼-Inch 0.8MB Diskette"
+}

@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_fiberglass",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "fiberglass.png",
+  "description" : "Raw fiberglass. Can be melted into a circuit board.",
+  "shortdescription" : "Fiberglass",
+  "itemTags" : [ "reagent" ]
+}

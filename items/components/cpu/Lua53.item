@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_cpu_Lua53",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "cpu1.png",
+  "description" : "This particular CPU runs with the Lua 5.3 Architecture.",
+  "shortdescription" : "Lua 5.3 CPU",
+  "architecture" : "Lua53"
+}

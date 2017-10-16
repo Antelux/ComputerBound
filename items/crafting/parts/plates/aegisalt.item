@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_aegisaltplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=2C7D17;666666=88A826;999999=B9C932;CCCCCC=E8E633",
+  "description" : "An Aegisalt plate.",
+  "shortdescription" : "Aegisalt Plate",
+  "itemTags" : [ "reagent" ]
+}

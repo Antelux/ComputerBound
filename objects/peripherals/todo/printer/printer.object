@@ -1,0 +1,21 @@
+{
+  "objectName" : "cb_printer0",
+  "rarity" : "Common",
+  "description" : "Time to print some ads.",
+  "shortdescription" : "Printer",
+  "race" : "generic",
+  "category" : "wire",
+
+  "inventoryIcon" : "icon.png",
+  "orientations" : [
+    {
+      "dualImage" : "printer.png:default.empty",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "inputNodes" : [ [0, -1] ]
+}

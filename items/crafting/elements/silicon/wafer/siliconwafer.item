@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_siliconwafer",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "siliconwafer.png",
+  "description" : "With the right tools, this can become an integrated circuit!",
+  "shortdescription" : "Silicon Wafer",
+  "itemTags" : [ "reagent" ]
+}

@@ -1,9 +1,8 @@
 {
-  "itemName" : "harddrive",
-  "rarity" : "common",
-  "category" : "craftingMaterial",
-  "inventoryIcon" : "harddrive.png",
-  "maxStack" : 1,
-  "description" : "A Hard Drive. Allows for a computer to store data.",
-  "shortdescription" : "Hard Drive"
+	"itemName" : "cb_harddrive",
+	"rarity" : "common",
+	"category" : "component",
+	"inventoryIcon" : "harddrive.png",
+	"description" : "A Hard Disk Drive. Allows for a computer to store data.",
+	"shortdescription" : "5MB HDD"
 }

@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_ironplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=433539;666666=696f67;999999=ada197;CCCCCC=ebe1dc",
+  "description" : "An iron plate.",
+  "shortdescription" : "Iron Plate",
+  "itemTags" : [ "reagent" ]
+}

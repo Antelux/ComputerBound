@@ -1,0 +1,12 @@
+{
+  "input" : [
+    { "item" : "tungstenbar", "count" : 10 },
+    { "item" : "ironbar", "count" : 5 }
+  ],
+  "output" : {
+    "item" : "cb_sawmill",
+    "count" : 1
+  },
+  "duration" : 5,
+  "groups" : [ "inventorstable2", "craftingstations", "all" ]
+}

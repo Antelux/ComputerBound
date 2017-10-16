@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "goldbar", "count" : 1 }
+  ],
+  "output" : {
+    "item" : "cb_goldplate",
+    "count" : 3
+  },
+  "duration" : 1.5,
+  "groups" : [ "sawmill", "craftingstations", "all" ]
+}

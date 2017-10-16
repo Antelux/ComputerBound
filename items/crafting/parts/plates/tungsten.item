@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_tungstenplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=3b3e42;666666=72767d;999999=b8babd;CCCCCC=d6d8da",
+  "description" : "A tungsten plate.",
+  "shortdescription" : "Tungsten Plate",
+  "itemTags" : [ "reagent" ]
+}

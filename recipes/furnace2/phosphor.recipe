@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "cb_zincbar", "count" : 1 },
+    { "item" : "cb_copperplate", "count" : 1 }
+  ],
+  "output" : { "item" : "cb_phosphor", "count" : 4 },
+  "duration" : 0.15,
+  "groups" : [ "craftingfurnace2", "ingredients", "all" ]
+}

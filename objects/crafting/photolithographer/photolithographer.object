@@ -1,0 +1,62 @@
+{
+  "objectName" : "cb_photolithographer",
+  "colonyTags" : ["crafting"],
+  "rarity" : "Rare",
+  "description" : "Using this, you can create dies for integrated circuits!",
+  "shortdescription" : "^orange;Photolithographer^white;",
+  "race" : "generic",
+  "category" : "crafting",
+
+  "interactAction" : "OpenCraftingInterface",
+  "interactData" : {
+    "config" : "/interface/windowconfig/crafting.config",
+    "paneLayoutOverride" : {
+      "windowtitle" : {
+        "title" : "Photolithographer",
+        "subtitle" : "Pattern etching with light!",
+        "icon" : {
+          "file" : "/interface/crafting/photolithographer.png"
+        }
+      }
+    },
+    "filter" : [ "photolithographer" ]
+  },
+  
+  "learnBlueprintsOnPickup" : [ 
+    "cb_cpu_Lua53",
+    "cb_gpu_32k",
+    "cb_ram_1mb",
+    "cb_pcb"
+  ],
+
+  "lightColor" : [62, 89, 89],
+
+  "flickerPeriod" : 0.5,
+  "flickerMinIntensity" : 0.9,
+  "flickerMaxIntensity" : 1,
+  "flickerPeriodVariance" : 0.0,
+  "flickerIntensityVariance" : 0,
+
+  "apexDescription" : "These are incredibly useful for small colonies building up.",
+  "avianDescription" : "I've never seen light used in such a manner!",
+  "floranDescription" : "Floran think light isss dumb. Makess ssshiniess though.",
+  "glitchDescription" : "Excited. What technologies can I make with this?",
+  "humanDescription" : "Fotolithe . . photolitogre . . photolithegrayfy! There we go.",
+  "hylotlDescription" : "It's amazing what can be done simply through using light.",
+  "novakidDescription" : "This contraption might make other stars jealous.",
+
+  "inventoryIcon" : "photolithographericon.png",
+
+  "orientations" : [
+    {
+      "dualImage" : "photolithographer.png:<color>.<frame>",
+      "imagePosition" : [-16, 0],
+
+      "frames" : 20,
+      "animationCycle" : 1.7,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ]
+}

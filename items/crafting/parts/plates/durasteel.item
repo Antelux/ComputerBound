@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_durasteelplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=211e55;666666=4b4d8c;999999=7887b3;CCCCCC=a0b5d4",
+  "description" : "A durasteel plate.",
+  "shortdescription" : "Durasteel Plate",
+  "itemTags" : [ "reagent" ]
+}

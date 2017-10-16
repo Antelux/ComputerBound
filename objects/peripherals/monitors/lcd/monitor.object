@@ -1,0 +1,31 @@
+{
+  "objectName" : "cb_monitor_lcd0",
+  "printable" : false,
+  "rarity" : "Common",
+  "category" : "wire",
+  "description" : "This particular monitor sports a 240x135 resolution.",
+  "shortdescription" : "240x135 Monitor",
+  "race" : "generic",
+
+  "inventoryIcon" : "monitor.png",
+  "orientations" : [
+    {
+      "dualImage" : "monitor.png:<color>.off",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "inputNodes" : [ [ 1, 1 ] ],
+
+  //"scripts" : [ "/objects/peripherals/monitors/driver.lua" ],
+  //"scriptDelta" : 0,
+
+  "width" : 240,
+  "height" : 135//,
+
+  //"interactAction" : "ScriptPane",
+  //"interactData" : "/objects/peripherals/monitors/tier2/monitor.config"
+}

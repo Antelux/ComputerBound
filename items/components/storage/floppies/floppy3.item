@@ -1,0 +1,8 @@
+{
+	"itemName" : "cb_floppy3(storage)",
+	"rarity" : "common",
+	"category" : "Component: Storage",
+	"inventoryIcon" : "floppy3.png",
+	"description" : "A floppy disk. A lot more durable than it's previous generations.",
+	"shortdescription" : "3½-Inch 1.44MB Diskette"
+}

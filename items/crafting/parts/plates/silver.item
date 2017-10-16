@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_silverplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=647080;666666=8799aa;999999=b3cbdf;CCCCCC=d7ecfa",
+  "description" : "A silver plate.",
+  "shortdescription" : "Silver Plate",
+  "itemTags" : [ "reagent" ]
+}

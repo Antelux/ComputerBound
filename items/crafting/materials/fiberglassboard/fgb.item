@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_fgb",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "fgb.png",
+  "description" : "A fiberglass board. Use a photolithographer to etch something into it.",
+  "shortdescription" : "Fiberglass Board",
+  "itemTags" : [ "reagent" ]
+}

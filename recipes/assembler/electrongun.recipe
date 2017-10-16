@@ -1,0 +1,10 @@
+{
+  "input" : [
+    { "item" : "glass", "count" : 1 },
+    { "item" : "wire", "count" : 2 },
+    { "item" : "ironbar", "count" : 1 }
+  ],
+  "output" : { "item" : "cb_electrongun", "count" : 1 },
+  "duration" : 0.15,
+  "groups" : [ "assembler" ]
+}

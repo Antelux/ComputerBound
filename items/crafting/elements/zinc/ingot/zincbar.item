@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_zincbar",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "zincbar.png",
+  "description" : "A zinc bar.",
+  "shortdescription" : "Zinc Bar",
+  "itemTags" : [ "reagent" ]
+}

@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_diamondplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=1278cf;666666=3acffe;999999=b0ffff;CCCCCC=ffffff",
+  "description" : "A diamond plate.",
+  "shortdescription" : "Diamond Plate",
+  "itemTags" : [ "reagent" ]
+}

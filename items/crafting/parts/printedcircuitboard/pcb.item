@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_pcb",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "pcb.png",
+  "description" : "Ready for any electronic components to be mounted on!",
+  "shortdescription" : "Printed Circuit Board",
+  "itemTags" : [ "reagent" ]
+}

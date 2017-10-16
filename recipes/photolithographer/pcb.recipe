@@ -1,0 +1,9 @@
+{
+  "input" : [ 
+  	{ "item" : "cb_fgb", "count" : 1 },
+  	{ "item" : "cb_copperplate", "count" : 1 }
+  ],
+  "output" : { "item" : "cb_pcb", "count" : 1 },
+  "duration" : 1.5,
+  "groups" : [ "photolithographer", "craftingstations", "all" ]
+}

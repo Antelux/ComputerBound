@@ -1,0 +1,155 @@
+[
+	// Modifies the moon to spawn small amounts of
+	// iron and silicon ore.
+	{
+		"op" : "add",
+		"path" : "/moon/0/1/-",
+		"value" : [ "silicon", 0.50 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/moon/0/1/-",
+		"value" : [ "iron", 0.50 ]
+	},
+
+	// And the rest is just adding silicon to
+	// a bunch of other things.
+
+	{
+		"op" : "add",
+		"path" : "/depth1/1/1/-",
+		"value" : [ "silicon", 0.20 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth1/2/1/-",
+		"value" : [ "silicon", 0.20 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth1/3/1/-",
+		"value" : [ "silicon", 0.20 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth1/4/1/-",
+		"value" : [ "silicon", 0.20 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth1/5/1/-",
+		"value" : [ "silicon", 0.20 ]
+	},
+
+
+
+	{
+		"op" : "add",
+		"path" : "/depth2/1/1/-",
+		"value" : [ "silicon", 0.60 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/2/1/-",
+		"value" : [ "silicon", 0.60 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/3/1/-",
+		"value" : [ "silicon", 0.60 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/4/1/-",
+		"value" : [ "silicon", 0.60 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/5/1/-",
+		"value" : [ "silicon", 0.60 ]
+	},
+
+
+
+	{
+		"op" : "add",
+		"path" : "/depth3/1/1/-",
+		"value" : [ "silicon", 1.00 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/2/1/-",
+		"value" : [ "silicon", 1.00 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/3/1/-",
+		"value" : [ "silicon", 1.00 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/4/1/-",
+		"value" : [ "silicon", 1.00 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/5/1/-",
+		"value" : [ "silicon", 1.00 ]
+	},
+
+
+
+	{
+		"op" : "add",
+		"path" : "/depth2/1/1/-",
+		"value" : [ "zinc", 0.40 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/2/1/-",
+		"value" : [ "zinc", 0.40 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/3/1/-",
+		"value" : [ "zinc", 0.40 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/4/1/-",
+		"value" : [ "zinc", 0.40 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth2/5/1/-",
+		"value" : [ "zinc", 0.40 ]
+	},
+
+
+
+	{
+		"op" : "add",
+		"path" : "/depth3/1/1/-",
+		"value" : [ "zinc", 0.50 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/2/1/-",
+		"value" : [ "zinc", 0.50 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/3/1/-",
+		"value" : [ "zinc", 0.50 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/4/1/-",
+		"value" : [ "zinc", 0.50 ]
+	},
+	{
+		"op" : "add",
+		"path" : "/depth3/5/1/-",
+		"value" : [ "zinc", 0.50 ]
+	}
+]

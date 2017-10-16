@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_copperplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=89360d;666666=bd795a;999999=e7ab89;CCCCCC=fcd6b8",
+  "description" : "A copper plate.",
+  "shortdescription" : "Copper Plate",
+  "itemTags" : [ "reagent" ]
+}

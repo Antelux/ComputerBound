@@ -1,3 +1,0 @@
-local sPath = ...
-sPath = shell.resolvePath(sPath) or printError('No such directory "'..sPath..'/"')
-if sPath then fs.makeDir(sPath) end

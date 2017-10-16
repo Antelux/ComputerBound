@@ -1,0 +1,23 @@
+{
+  "objectName" : "cb_mouse0",
+  "rarity" : "Common",
+  "category" : "wire",
+  "description" : "A standard mouse.",
+  "shortdescription" : "Mouse",
+  "race" : "generic",
+
+  "inventoryIcon" : "icon.png",
+  "orientations" : [
+    {
+      "dualImage" : "pcmouse.png",
+      "imagePosition" : [0, 0],
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "outputNodes" : [ [ 0, 0 ] ],
+
+  "scripts" : [ "/objects/peripherals/mouse/mouse.lua" ],
+  "scriptDelta" : 0
+}

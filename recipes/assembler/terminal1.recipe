@@ -1,0 +1,12 @@
+{
+  "input" : [
+    { "item" : "cb_ironplate", "count" : 5 },
+    { "item" : "cb_pcb", "count" : 1 },
+    { "item" : "cb_electrongun", "count" : 1 },
+    { "item" : "cb_phosphor", "count" : 2 },
+    { "item" : "glass", "count" : 2 }
+  ],
+  "output" : { "item" : "cb_terminal1", "count" : 1 },
+  "duration" : 0.3,
+  "groups" : [ "assembler", "peripherals" ]
+}

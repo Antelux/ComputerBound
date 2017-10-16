@@ -1,0 +1,47 @@
+{
+  "objectName" : "cb_terminal1",
+  "printable" : false,
+  "rarity" : "Common",
+  "category" : "wire",
+  "description" : "A rather old terminal model. Good enough for use, though.",
+  "shortdescription" : "Terminal (1-Bit 80x24)",
+  "race" : "generic",
+
+  "inventoryIcon" : "icon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [ { "image" : "terminal.png:<color>.<frame>", "fullbright" : true }, { "image" : "terminallit.png:<color>.<frame>" } ],
+      "imagePosition" : [0, 0],
+
+      "direction" : "left",
+      "flipImages" : true,
+
+      "frames" : 12,
+      "animationCycle" : 1.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    },
+
+    {
+      "imageLayers" : [ { "image" : "terminal.png:<color>.<frame>", "fullbright" : true }, { "image" : "terminallit.png:<color>.<frame>" } ],
+      "imagePosition" : [0, 0],
+
+      "direction" : "right",
+
+      "frames" : 12,
+      "animationCycle" : 1.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "inputNodes" : [ [ 1, 1 ] ],
+
+  "scripts" : [ "/lua/scripts/objects/terminal.lua" ],
+  "scriptDelta" : 2,
+
+  "interactAction" : "ScriptPane",
+  "interactData" : "/objects/peripherals/terminals/0/terminal.config"
+}

@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_silicon",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "silicon.png",
+  "description" : "Metallurgical grade silicon. Can be melted to grow a silicon boule.",
+  "shortdescription" : "Silicon",
+  "itemTags" : [ "reagent" ]
+}

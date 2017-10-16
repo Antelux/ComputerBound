@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_violiumplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=3d0068;666666=6a01b1;999999=9622e5;CCCCCC=e9afff",
+  "description" : "A violium plate.",
+  "shortdescription" : "Violium Plate",
+  "itemTags" : [ "reagent" ]
+}

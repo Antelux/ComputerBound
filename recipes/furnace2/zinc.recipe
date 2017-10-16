@@ -1,0 +1,8 @@
+{
+  "input" : [
+    { "item" : "cb_zincore", "count" : 2 }
+  ],
+  "output" : { "item" : "cb_zincbar", "count" : 1 },
+  "duration" : 0.15,
+  "groups" : [ "craftingfurnace2", "bars", "all" ]
+}

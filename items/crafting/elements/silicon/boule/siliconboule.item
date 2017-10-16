@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_siliconboule",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "siliconboule.png",
+  "description" : "A silicon boule. Not incredibly useful as it currently is, but it can become so if it's cut up.",
+  "shortdescription" : "Silicon Boule",
+  "itemTags" : [ "reagent" ]
+}

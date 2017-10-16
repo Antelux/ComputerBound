@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_siliconore",
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "siliconore.png",
+  "description" : "Silicon ore, used to make electronic components.",
+  "shortdescription" : "Silicon Ore",
+  "itemTags" : [ "reagent" ]
+}

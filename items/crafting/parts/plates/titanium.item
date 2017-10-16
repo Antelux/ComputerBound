@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_titaniumplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=685da0;666666=c6a5cd;999999=dad8ed;CCCCCC=ffffff",
+  "description" : "A titanium plate.",
+  "shortdescription" : "Titanium Plate",
+  "itemTags" : [ "reagent" ]
+}

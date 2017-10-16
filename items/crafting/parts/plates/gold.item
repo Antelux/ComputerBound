@@ -1,0 +1,9 @@
+{
+  "itemName" : "cb_goldplate",
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "plate.png?replace;333333=b97c01;666666=e2af20;999999=ffd84d;CCCCCC=fff48f",
+  "description" : "A gold plate.",
+  "shortdescription" : "Gold Plate",
+  "itemTags" : [ "reagent" ]
+}
