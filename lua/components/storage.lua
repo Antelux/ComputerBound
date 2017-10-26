@@ -5,13 +5,15 @@ function newComponent(Computer, ItemName, DeviceAddress)
     local Interrupt = Computer.Interrupt
     ItemName = ItemName:match("^cb_(.+)%(")
 
-    local IO_Speed = cconfig.get("components/storage." .. ItemName .. "_io")
-    local Seek_Speed = cconfig.get("components/storage." .. ItemName .. "_seek")
-    local Disk_Size = cconfig.get("components/storage." .. ItemName .. "_size")
+    local IO_Speed = cconfig.get("components/storage." .. ItemName .. "_io", 1)
+    local Seek_Speed = cconfig.get("components/storage." .. ItemName .. "_seek", 1)
+    local Disk_Size = cconfig.get("components/storage." .. ItemName .. "_size", 1)
+    local IO_Sustain = cconfig.get("components/storage." .. ItemName .. "_sustain", 1)
 
     local FileSystem = newFilesystem(DeviceAddress, Disk_Size)
 
     local ceil = math.ceil
+    local abs = math.abs
 
     local Countdown = math.huge
     local CurrentFunction
@@ -73,7 +75,7 @@ function newComponent(Computer, ItemName, DeviceAddress)
                     local current = CurrentFile:seek()
                     Param1 = CurrentFile:seek("end") + Param1 + 1
                     CurrentFile:seek("set", current)
-                    Param1 = Param1 > 0 and Param1 or 0
+                    Param1 = Param1 >= 0 and Param1 or 0
                 end
                 
                 animator.playSound("floppy_rw", -1)
@@ -101,6 +103,49 @@ function newComponent(Computer, ItemName, DeviceAddress)
                 return true
 
             elseif FunctionName == "seek" then
+                if type(Param1) ~= "string" then return false, "mode must be a string" end
+                if type(Param2) ~= "number" then return false, "offset must be a string" end
+
+                if Param1 == "absolute" then
+                    local current = CurrentFile:seek()
+                    local size = CurrentFile:seek("end")
+
+                    if Param2 < 0 then
+                        Param2 = CurrentFile:seek("end") + Param2 + 1
+                        Param2 = Param2 >= 0 and Param2 or 0
+                    end
+                    if Param2 > size then Param2 = size end
+
+                    animator.playSound("floppy_rw", -1)
+
+                    Countdown = ceil(abs(Param2 - current) / IO_Speed)
+                    CurrentFunction = function()
+                        animator.stopAllSounds("floppy_rw")
+                        Interrupt:Push({"storage_seek", DeviceAddress, CurrentFile:seek("set", Param2)}) 
+                    end
+
+                elseif Param1 == "relative" then
+                    local current = CurrentFile:seek()
+                    local size = CurrentFile:seek("end")
+                    local seek_location = current + Param2
+
+                    if seek_location > size then
+                        Param2 = size - current
+                    elseif seek_location < 0 then
+                        Param2 = -current
+                    end
+
+                    animator.playSound("floppy_rw", -1)
+
+                    Countdown = ceil(abs(Param2) / IO_Speed)
+                    CurrentFunction = function()
+                        animator.stopAllSounds("floppy_rw")
+                        Interrupt:Push({"storage_seek", DeviceAddress, CurrentFile:seek("cur", Param2)}) 
+                    end
+
+                else
+                    return false, "invalid seek mode"
+                end
 
                 return true
 
@@ -208,7 +253,7 @@ function newComponent(Computer, ItemName, DeviceAddress)
         update = function()
             Countdown = (Countdown or math.huge) - 1
 
-            if Countdown == 0 then
+            if Countdown <= 0 then
                 Countdown = math.huge
                 CurrentFunction()
             end

@@ -40,7 +40,7 @@
   "inputNodes" : [ [ 1, 1 ] ],
 
   "scripts" : [ "/lua/scripts/objects/terminal.lua" ],
-  "scriptDelta" : 2,
+  "scriptDelta" : 1,
 
   "interactAction" : "ScriptPane",
   "interactData" : "/objects/peripherals/terminals/0/terminal.config"

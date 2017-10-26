@@ -54,6 +54,9 @@ end
 local StaticEnvironment
 local Computer = {
     ID              = -1,    -- Entity ID of the computer.
+    Storage         = {      -- Permenant storage for small things.
+        Clock = 0            -- Amount of time passed since creation of computer.
+    },
 
     InputNodes      = {},    -- The current input node connections of the computer.
     OutputNodes     = {},    -- The current output node connections of the computer.
@@ -361,6 +364,19 @@ Computer.API.System = {
     address = function()
         return storage.address
     end,
+
+    getClock = function()
+        return Computer.Storage.Clock
+    end,
+
+    setClock = function(clock)
+        if type(clock) == "number" then
+            local storage = Computer.Storage
+            local old_clock = storage.Clock
+            storage.Clock = clock
+            return old_clock
+        end
+    end
 
     --time = function()
     --    local t = world.timeOfDay() * 24 + 6
@@ -749,6 +765,7 @@ function init()
 
     storage.address = storage.address or sb.makeUuid()
     storage.inventory = storage.inventory or {}
+    Computer.Storage = storage.data or Computer.Storage
     
     local Computer = Computer
 
@@ -762,6 +779,7 @@ function init()
     message.setHandler("preformRestart", function()
         Computer.isRunning = false
         Computer.isRebooting = true
+        Computer.lastError = nil
         script.setUpdateDelta(1)
 
         collectgarbage("stop")
@@ -780,6 +798,7 @@ function init()
                 collectgarbage("stop")
                 collectgarbage(); collectgarbage()
             end
+            Computer.lastError = nil
         end
     end)
 
@@ -827,6 +846,8 @@ function uninit()
         collectgarbage(); collectgarbage()
         collectgarbage("restart"); script.setUpdateDelta(0)
     end
+
+    storage.data = Computer.Storage
 end
 
 function die()

@@ -45,134 +45,10 @@ setlocale = function(locale, category)
 end,
 --]]
 
-----------------------------------------------------------------------------------------------------
--- This is very much temporary
-----------------------------------------------------------------------------------------------------
-
-local temp_keys = {
-    [05] = " ",
-
-    [11] = "'",
-    [16] = ",",
-    [17] = "-",
-    [18] = ".",
-    [19] = "/",
-
-    [20] = "0",
-    [21] = "1",
-    [22] = "2",
-    [23] = "3",
-    [24] = "4",
-    [25] = "5",
-    [26] = "6",
-    [27] = "7",
-    [28] = "8",
-    [29] = "9",
-
-    [31] = ";",
-    [33] = "=",
-    [37] = "[",
-    [38] = "\\",
-    [39] = "]",
-    [42] = "`",
-
-    [43] = "a",
-    [44] = "b",
-    [45] = "c",
-    [46] = "d",
-    [47] = "e",
-    [48] = "f",
-    [49] = "g",
-    [50] = "h",
-    [51] = "i",
-    [52] = "j",
-    [53] = "k",
-    [54] = "l",
-    [55] = "m",
-    [56] = "n",
-    [57] = "o",
-    [58] = "p",
-    [59] = "q",
-    [60] = "r",
-    [61] = "s",
-    [62] = "t",
-    [63] = "u",
-    [64] = "v",
-    [65] = "w",
-    [66] = "x",
-    [67] = "y",
-    [68] = "z",
-
-    [70] = "0",
-    [71] = "1",
-    [72] = "2",
-    [73] = "3",
-    [74] = "4",
-    [75] = "5",
-    [76] = "6",
-    [77] = "7",
-    [78] = "8",
-    [79] = "9",
-
-    [80] = ".",
-    [81] = "/",
-    [82] = "*",
-    [83] = "-",
-    [84] = "+",
-
-    [205] = " ",
-
-    [211] = '"',
-    [216] = "<",
-    [217] = "_",
-    [218] = ">",
-    [219] = "?",
-
-    [220] = ")",
-    [221] = "!",
-    [222] = "@",
-    [223] = "#",
-    [224] = "$",
-    [225] = "%",
-    [226] = "^",
-    [227] = "&",
-    [228] = "*",
-    [229] = "(",
-
-    [231] = ":",
-    [233] = "+",
-    [237] = "{",
-    [238] = "|",
-    [239] = "}",
-    [242] = "~",
-
-    [243] = "A",
-    [244] = "B",
-    [245] = "C",
-    [246] = "D",
-    [247] = "E",
-    [248] = "F",
-    [249] = "G",
-    [250] = "H",
-    [251] = "I",
-    [252] = "J",
-    [253] = "K",
-    [254] = "L",
-    [255] = "M",
-    [256] = "N",
-    [257] = "O",
-    [258] = "P",
-    [259] = "Q",
-    [260] = "R",
-    [261] = "S",
-    [262] = "T",
-    [263] = "U",
-    [264] = "V",
-    [265] = "W",
-    [266] = "X",
-    [267] = "Y",
-    [268] = "Z"
-}
+local DefaultInputFile, DefaultOutputFile
+local RandomSource
+local ComputerStartTime
+local OS_ENV
 
 ----------------------------------------------------------------------------------------------------
 -- archEnvironment is called only once upon initiation of the CPU component.
@@ -212,7 +88,7 @@ function archEnvironment(ComputerAPI)
             if type(mode) == "string" and mode:find("b") then
                 error("attempt to load a binary chunk", 2)
             end
-            return load(code, chunkname, mode, env or Architecture)
+            return load(code, chunkname, mode, env)
         end
     end
 
@@ -223,6 +99,32 @@ function archEnvironment(ComputerAPI)
     local function arch_getmetatable(object)
         return type(object) == "table" and getmetatable(object)
     end
+
+
+
+
+
+    -- Functions belonging to math.* --
+    local function arch_math_randomseed(seed)
+        RandomSource:init(type(seed) == "number" and seed or error("seed must be a number, got a " ..type(seed).. " value", 2))
+    end
+
+    local function arch_math_random(min, max)
+        min = min and (type(min) == "number" and min or error("minimum value must be a number, got a " ..type(min).. " value", 2))
+        max = max and (type(max) == "number" and max or error("maximum value must be a number, got a " ..type(max).. " value", 2))
+
+        if max and min then
+            return (RandomSource:randf(min, max) + 0.5) // 1
+        elseif min then
+            return (RandomSource:randf(1, min) + 0.5) // 1
+        else 
+            return RandomSource:randf() 
+        end
+    end
+
+
+
+
 
     -- Functions belonging to os.* --
     local function arch_os_remove(item)
@@ -343,6 +245,324 @@ function archEnvironment(ComputerAPI)
         end
     end
 
+    local oclock = os.clock
+    local function arch_os_clock()
+        return oclock() - ComputerStartTime
+    end
+
+    local function arch_os_date()
+
+    end
+
+    local function arch_os_getenv(varname)
+        if type(varname) == "string" then
+            return OS_ENV[varname]
+        else
+            error("varname must be a string, got a " ..type(varname).. " value", 2)
+        end
+    end
+
+    local function arch_os_setenv(varname, data)
+        if type(varname) == "string" then
+            OS_ENV[varname] = data
+        else
+            error("varname must be a string, got a " ..type(varname).. " value", 2)
+        end
+    end
+
+
+
+
+
+    -- Functions belonging io.* --
+    local ecwrap = ComputerAPI.Component.wrap
+
+    local function setPath(drive, drivename, path)
+        local ok, err = drive.set(path)
+        if ok then
+            local eventData
+            repeat
+                eventData = coroutine.yield()
+            until eventData and eventData[1] == "storage_set" and eventData[2] == drivename
+
+            return eventData[3], eventData[4]
+        else
+            error("unable to set path for '" .. tostring(drivename) .. "'; " .. tostring(err))
+        end
+    end
+
+    local __FileTag = function() end
+    local function arch_io_type(file)
+        if type(file) == "table" then
+            return 
+                file.__tag == __FileTag and
+                (file.__isOpen and "file" or "closed file") or nil
+        end
+    end
+
+    local function arch_io_open(filename, mode)
+        local drivename, path = filename:match("^/(.-)(/.+)$")
+        local drive = ecwrap(drivename)
+        local mode = mode or "r"; path = path or "/"
+
+        if drive then
+            local Buffer, Index = {}, 0
+            local BufferSize = 0
+            local MaxBufferSize = 2048
+            local BufferMode = "full"
+
+            local File = {
+                __isOpen = true,
+                __tag = __FileTag,
+            }
+
+            local FileMetatable = {
+                close = function(File)
+                    if File.flush then
+                        File:flush()
+                    end
+                    File.__isOpen = nil
+                end,
+
+                seek = function(File, whence, offset)
+
+                end
+            }
+
+            if mode == "r" then
+                function FileMetatable.lines(File)
+
+                end
+
+                function FileMetatable.read(File, ...)
+                    local formats = {...}
+                    formats[1] = formats[1] or "l"
+                    setPath(drive, drivename, path)
+
+                    for i = 1, #formats do
+                        local f = formats[i]
+
+                        if type(f) == "number" then
+
+                        elseif f == "n" then
+
+                        elseif f == "a" then
+                            local ok, err = drive.read(-1)
+                            if ok then
+                                local eventData
+                                repeat
+                                    eventData = coroutine.yield()
+                                until eventData and (eventData[1] == "storage_read" and eventData[2] == drivename)
+
+                                return eventData[3]
+                            else
+                                error("unable to read; " .. tostring(err))
+                            end
+
+                        elseif f == "l" then
+
+                        elseif f == "L" then
+
+                        else
+                            error("invalid read format '" .. tostring(f) .. "'")
+                        end
+                    end
+                end
+
+            elseif mode == "w" then
+                function FileMetatable.write(File, ...)
+                    local data = {...}
+                    local tostring = tostring
+                    local Buffer = Buffer
+
+                    if BufferMode == "no" then
+                        setPath(drive, drivename, path)
+                        
+                        for i = 1, #data do
+                            local ok, err = drive.write(tostring(data[i]))
+                            if ok then
+                                local eventData
+                                repeat
+                                    eventData = coroutine.yield()
+                                until eventData and (eventData[1] == "storage_write" and eventData[2] == drivename)
+
+                                return eventData[3]
+                            else
+                                error("unable to write; " .. tostring(err))
+                            end
+                        end
+
+                    elseif BufferMode == "full" then
+                        for i = 1, #data do
+                            local data_string = tostring(data[i])
+
+                            Index = Index + 1; Buffer[Index] = data_string
+                            BufferSize = BufferSize + #data_string
+
+                            if BufferSize > MaxBufferSize then
+                                File:flush()
+                            end
+                        end
+
+                    else -- "line"
+                        local sfind = string.find
+                        for i = 1, #data do
+                            local data_string = tostring(data[i])
+
+                            Index = Index + 1; Buffer[Index] = data_string
+                            BufferSize = BufferSize + #data_string
+
+                            if (BufferSize > MaxBufferSize) or sfind(data_string, "\n") then
+                                File:flush()
+                            end
+                        end
+                    end
+                end
+
+                local AvailableModes = {no = true, full = true, line = true}
+                function FileMetatable.setvbuf(File, mode, size)
+                    if arch_io_type(File) == "file" then
+                        if mode and not AvailableModes[mode] then error("invalid buffer mode", 2) end
+                        if size and (type(size) ~= "number" or size < 0) then error("positive number expected for buffer size", 2) end
+
+                        BufferMode = mode or BufferMode
+                        MaxBufferSize = size or MaxBufferSize
+                    else
+                        error("file expected", 2)
+                    end
+                end
+
+                function FileMetatable.flush(File)
+                    setPath(drive, drivename, path)
+                    local Buffer = Buffer
+                    for i = 1, Index do
+                        local ok, err = drive.write(Buffer[i])
+                        if ok then
+                            local eventData
+                            repeat
+                                eventData = coroutine.yield()
+                            until eventData and (eventData[1] == "storage_write" and eventData[2] == drivename)
+
+                            return eventData[3]
+                        else
+                            error("unable to write; " .. tostring(err))
+                        end
+
+                        Buffer[i] = nil
+                    end
+                    Index = 0
+                    BufferSize = 0
+                end
+            end
+
+            return setmetatable(File, {__index = FileMetatable})
+        else
+            error("invalid drive: " .. tostring(drivename))
+        end
+    end
+
+    local function arch_io_close(file)
+        if arch_io_type(file) == "file" then
+            file:close()
+        else
+            local _ = DefaultOutputFile and DefaultOutputFile:close()
+        end
+    end
+
+    local function arch_io_lines(filename, ...)
+        if type(filename) == "string" then
+            local drivename, path = filename:match("^/(.-)(/.+)$")
+            local drive = ecwrap(drivename)
+            
+            if drive then
+                return function()
+                    local ok, err = setPath(drive, drivename, path)
+                    if ok then
+                        local ok, err = drive.read("l")
+                        if ok then
+                            local eventData
+                            repeat
+                                eventData = coroutine.yield()
+                            until eventData and (eventData[1] == "storage_read" and eventData[2] == drivename)
+
+                            return eventData[3]
+                        else
+                            error("unable to read; " .. tostring(err))
+                        end
+                    else
+                        error("unable to set path; " .. tostring(err))
+                    end
+                end
+            else
+                error("invalid drive: " .. tostring(drivename))
+            end
+        else
+            return DefaultInputFile and DefaultInputFile:lines("*l")
+        end
+    end
+
+    local function arch_io_input(file)
+        if type(file) == "string" then
+            --DefaultInputFile = io.open(prepare(file), "r")
+
+        elseif arch_io_type(file) == "file" then
+            DefaultInputFile = file
+
+        else
+            return DefaultInputFile
+        end
+    end
+
+    local function arch_io_read(...)
+        if DefaultInputFile then
+            return DefaultInputFile:read(...)
+        end
+    end
+
+    local function arch_io_output(file)
+        if type(file) == "string" then
+            --DefaultOutputFile = io.open(prepare(file), "w")
+
+        elseif arch_io_type(file) == "file" then
+            DefaultOutputFile = file
+
+        else
+            return DefaultOutputFile
+        end
+    end
+
+    local function arch_io_write(...)
+        if DefaultOutputFile then
+            return DefaultOutputFile:write(...)
+        end
+    end
+
+    local function arch_io_flush()
+        local _ = DefaultOutputFile and DefaultOutputFile:flush()
+    end
+
+
+
+
+
+    -- Functions relating specifically to compiling Lua --
+    local function arch_loadfile(file, mode, env)
+        if file then
+            local code = arch_io_open(file, "r")
+            if code then
+                local ok, err = arch_load(code:read("a"), file, mode, env or {})
+                code:close(); return ok, err
+            end
+            return nil, "File not found"
+        else
+            -- load standard input
+        end
+    end
+
+
+
+
+
     -- Visual Input/Output Functions -- 
     local tostring = tostring
     local cnof = ComputerAPI.Node.output.find
@@ -403,49 +623,38 @@ function archEnvironment(ComputerAPI)
             local int
             repeat
                 int = cyield()
-            until int and int[1]:find("key_")
+            until int and int[1] == "char"
+            local char = int[2]
 
-            local event = int[1]
-            local key = int[2]
-            local isDown = int[3]
+            if #char == 1 then
+                line = ssub( line, 1, pos ) .. char .. ssub( line, pos + 1 )
+                pos = pos + 1; redraw()
 
-            if key == 115 then
-                isShifting = event ~= "key_release"
-            end
+            elseif char == "\01\03" then -- Enter
+                return line
+                
+            elseif char == "\01\90" then -- Left
+                if pos > 0 then
+                    pos = pos - 1
+                    redraw()
+                end
+                
+            elseif char == "\01\89" then -- Right
+                if pos < #line then
+                    pos = pos + 1
+                    redraw()
+                end
 
-            local k = not isShifting and key or key + 200
+            elseif char == "\01\01" then -- Backspace
+                if pos > 0 then
+                    line = ssub( line, 1, pos - 1 ) .. ssub( line, pos + 1 )
+                    pos = pos - 1; redraw()
+                end
 
-            if event == "key_press" then
-                if Keys[k] then
-                    line = ssub( line, 1, pos ) .. Keys[k] .. ssub( line, pos + 1 )
-                    pos = pos + 1; redraw()
-
-                elseif key == 3 then -- Enter
-                    return line
-                    
-                elseif key == 90 then -- Left
-                    if pos > 0 then
-                        pos = pos - 1
-                        redraw()
-                    end
-                    
-                elseif key == 89 then -- Right
-                    if pos < #line then
-                        pos = pos + 1
-                        redraw()
-                    end
-
-                elseif key == 0 then -- Backspace
-                    if pos > 0 then
-                        line = ssub( line, 1, pos - 1 ) .. ssub( line, pos + 1 )
-                        pos = pos - 1; redraw()
-                    end
-
-                elseif key == 69 then -- Delete
-                    if pos < #line then
-                        line = ssub( line, 1, pos ) .. ssub( line, pos + 2 )                
-                        redraw()
-                    end
+            elseif char == "\01\69" then -- Delete
+                if pos < #line then
+                    line = ssub( line, 1, pos ) .. ssub( line, pos + 2 )                
+                    redraw()
                 end
             end
         end
@@ -460,6 +669,10 @@ function archEnvironment(ComputerAPI)
             cnoi(Terminal, "setInverted", false)
         end
     end
+
+
+
+
 
     -- Return the Lua 5.3 Architecture --
     return {
@@ -494,20 +707,20 @@ function archEnvironment(ComputerAPI)
             --upvaluejoin
         },
         io = {
-            -- close                    (runtime)
-            -- flush                    (runtime)
-            -- input                    (runtime)
-            -- lines                    (runtime)
-            -- open                     (runtime)
-            -- output                   (runtime)
+            close = arch_io_close,
+            flush  = arch_io_flush,
+            input  = arch_io_input,
+            lines = arch_io_lines,
+            open = arch_io_open,
+            output = arch_io_output,
             -- popen                    (not implemented)
-            -- read                     (runtime)
+            read  = arch_io_read,
             stderr = arch_io_stderr,
             stdin = arch_io_stdin,
-            stdout = arch_io_stdout
+            stdout = arch_io_stdout,
             -- tmpfile                  (not implemented)
-            -- type                     (runtime)
-            -- write                    (runtime)
+            type  = arch_io_type,
+            write = arch_io_write
         },
         math = {
             abs = math.abs,
@@ -529,6 +742,8 @@ function archEnvironment(ComputerAPI)
             modf = math.modf,
             pi = math.pi,
             rad = math.rad,
+            random = arch_math_random,
+            randomseed = arch_math_randomseed,
             sin = math.sin,
             sqrt = math.sqrt,
             tan = math.tan,
@@ -537,18 +752,18 @@ function archEnvironment(ComputerAPI)
             ult = math.ult
         },
         os = {
-            -- clock                    (runtime)
-            -- date                     (runtime)
+            clock = arch_os_clock,
+            date = arch_os_date,
             difftime = os.difftime,
             -- execute                  (not implemented)
             exists = arch_os_exists,
             exit = arch_os_exit,
-            -- getenv                   (runtime)
+            getenv = arch_os_getenv,
             list = arch_os_list,
             makedir = arch_os_makedir,
             remove = arch_os_remove,
             rename = arch_os_rename,
-            -- setenv                   (runtime - added)
+            setenv = arch_os_setenv, -- (added)
             -- setlocale                (not implemented)
             size = arch_os_size,
             time = os.time
@@ -609,7 +824,7 @@ function archEnvironment(ComputerAPI)
         getmetatable = arch_getmetatable,
         ipairs = ipairs,
         load = arch_load,
-        -- loadfile                         (runtime)
+        loadfile = arch_loadfile,
         next = next,
         pairs = pairs,
         pcall = pcall,
@@ -618,7 +833,7 @@ function archEnvironment(ComputerAPI)
         rawget = rawget,
         rawlen = rawlen,
         rawset = rawset,
-        -- require                          (runtime)
+        require = arch_require,
         select = select,
         setmetatable = setmetatable, 
         tonumber = tonumber,
@@ -645,245 +860,30 @@ end
 ----------------------------------------------------------------------------------------------------
 
 function archRuntime(Environment)
-    -- The following math functions are reimplemented so they're not shared across all computers.
-    local RandomSource = sb.makeRandomSource(os.time() * 1000)
+    -- Initializing a couple of parameters
+    RandomSource = sb.makeRandomSource(os.time() * 1000)
+    DefaultInputFile, DefaultOutputFile = nil, nil
+    ComputerStartTime = os.clock(); OS_ENV = {}
 
-    function Environment.math.randomseed(seed)
-        RandomSource:init(type(seed) == "number" and seed or error("seed must be a number, got a " ..type(seed).. " value", 2))
-    end
-
-    function Environment.math.random(min, max)
-        min = min and (type(min) == "number" and min or error("minimum value must be a number, got a " ..type(min).. " value", 2))
-        max = max and (type(max) == "number" and max or error("maximum value must be a number, got a " ..type(max).. " value", 2))
-
-        if max and min then
-            return (RandomSource:randf(min, max) + 0.5) // 1
-        elseif min then
-            return (RandomSource:randf(1, min) + 0.5) // 1
-        else 
-            return RandomSource:randf() 
-        end
-    end
+    -- Computers will have an internal clock for the date.
+    -- To users, it will appear to increment by one every second
+    -- and continue to do so even after the computer has turned off.
+    -- In reality, this will be achieved:
+    --      when in use: return date + (oclock() - startTime)
+    --      when off: date = date + (oclock() - savedClock)
+    --
+    -- The date will represent the amount of time that has passed
+    -- since the computer was first created.
+    -- 
+    -- There will be a function to set the clock manually.
 
     Environment.package.preload = setmetatable({}, {__newindex = function(t, k, v)
         if type(v) ~= "function" then error("loader must be a function, got a " ..type(v).. " value", 2) end; t[k] = v
     end})
 
-    -- os.clock is reimplemented to use the time relative to when the thread was created.
-    local oclock = os.clock
-    local startTime = oclock()
-
-    local osenv = {}
-
-    function Environment.os.clock()
-        return oclock() - startTime
-    end
-
-    function Environment.os.date()
-
-    end
-
-    function Environment.os.getenv(varname)
-        if type(varname) == "string" then
-            return osenv[varname]
-        else
-            error("varname must be a string, got a " ..type(varname).. " value", 2)
-        end
-    end
-
-    function Environment.os.setenv(varname, data)
-        if type(varname) == "string" then
-            osenv[varname] = data
-        else
-            error("varname must be a string, got a " ..type(varname).. " value", 2)
-        end
-    end
-
-    -- Functions belonging io.* --
-    local DefaultInputFile, DefaultOutputFile
-    local ecwrap = Environment.component.wrap
-
-    local function setPath(drive, drivename, path)
-        local ok, err = drive.set(path)
-        if ok then
-            local eventData
-            repeat
-                eventData = coroutine.yield()
-            until eventData and eventData[1] == "storage_set" and eventData[2] == drivename
-
-            return eventData[3], eventData[4]
-        else
-            return false, err
-        end
-    end
-
-    local function arch_io_type(file)
-
-    end
-
-    function Environment.io.open(filename, mode)
-        local drivename, path = filename:match("^/(.-)(/.+)$")
-        local drive = ecwrap(drivename)
-        local mode = mode or "r"; path = path or "/"
-
-        if drive then
-            local File = {}
-            local FileMetatable = {
-                close = function(File)
-
-                end,
-
-                flush = function(File)
-
-                end,
-
-                seek = function(File, whence, offset)
-
-                end
-            }
-
-            if mode == "r" then
-                function FileMetatable.lines(File)
-
-                end
-
-                function FileMetatable.read(File, ...)
-                    local formats = {...}
-                    formats[1] = formats[1] or "l"
-                    local ok, err = setPath(drive, drivename, path)
-
-                    if ok then
-                        for i = 1, #formats do
-                            local f = formats[i]
-                            local f_type = type(f)
-
-                            if f_type == "string" then
-                                if f == "n" then
-
-                                elseif f == "a" then
-                                    local ok, err = drive.read(-1)
-                                    if ok then
-                                        local eventData
-                                        repeat
-                                            eventData = coroutine.yield()
-                                        until eventData and (eventData[1] == "storage_read" and eventData[2] == drivename)
-
-                                        return eventData[3]
-                                    else
-                                        error("unable to read; " .. tostring(err))
-                                    end
-
-                                elseif f == "l" then
-
-                                elseif f == "L" then
-
-                                else
-                                    error("unknown format '" .. f .. "'", 2)
-                                end
-
-                            elseif f_type == "number" then
-
-                            else
-                                error("format must be a string or number, got a " .. f_type .. " value instead", 2)
-                            end
-                        end
-                    else
-                        error("unable to set path; " .. tostring(err))
-                    end
-                end
-
-            elseif mode == "w" then
-                function FileMetatable.write(File, ...)
-
-                end
-
-                function FileMetatable.setvbuf(File, mode, size)
-
-                end
-            end
-
-            return setmetatable(File, {__index = FileMetatable})
-        end
-    end
-
-    function Environment.io.close(file)
-        if arch_io_type(file) == "file" then
-            file:close()
-        else
-            local _ = DefaultOutputFile and DefaultOutputFile:close()
-        end
-    end
-
-    function Environment.io.lines(filename, ...)
-        if type(file) == "string" then
-            --return io.lines(prepare(filename), ...)
-        else
-            return DefaultInputFile and DefaultInputFile:lines("*l")
-        end
-    end
-
-    function Environment.io.input(file)
-        if type(file) == "string" then
-            --DefaultInputFile = io.open(prepare(file), "r")
-
-        elseif arch_io_type(file) == "file" then
-            DefaultInputFile = file
-
-        else
-            return DefaultInputFile
-        end
-    end
-
-    function Environment.io.read(...)
-        if DefaultInputFile then
-            return DefaultInputFile:read(...)
-        end
-    end
-
-    function Environment.io.output(file)
-        if type(file) == "string" then
-            --DefaultOutputFile = io.open(prepare(file), "w")
-
-        elseif arch_io_type(file) == "file" then
-            DefaultOutputFile = file
-
-        else
-            return DefaultOutputFile
-        end
-    end
-
-    function Environment.io.write(...)
-        if DefaultOutputFile then
-            return DefaultOutputFile:write(...)
-        end
-    end
-
-    function Environment.io.flush()
-        local _ = DefaultOutputFile and DefaultOutputFile:flush()
-    end
-
-    Environment.io.type = arch_io_type
-
-    -- Functions relating specifically to compiling Lua --
-    local eload = Environment.load
-    local eiopen = Environment.io.open
-    
-    function Environment.loadfile(file, mode, env)
-        if file then
-            local code = eiopen(file, "r")
-            if code then
-                local ok, err = eload(code:read("a"), file, mode, env or {})
-                code:close(); return ok, err
-            end
-            return nil, "File not found"
-        else
-            -- load standard input
-        end
-    end
-    
-    local eloadfile = Environment.loadfile
+    local aloadfile = Environment.loadfile
     function Environment.dofile(file, ...)
-        local func, err = eloadfile(file, "t", Environment)
+        local func, err = aloadfile(file, "t", Environment)
         if func then
             return func(...)
         else
@@ -894,7 +894,7 @@ function archRuntime(Environment)
     --
     --       REMEMBER TO IMPLEMENT THE . USAGE!!!!!!
     --
-    local adofile = Environment.dofile
+    local edofile = Environment.dofile
     local aoexists = Environment.os.exists
     local apackage = Environment.package
     function Environment.require(modname)
@@ -949,7 +949,7 @@ function archRuntime(Environment)
                     local path = ssub(ppath, spath, epath-1)
                     local filepath = sgsub(path, sub_point, filename)
                     if aoexists(filepath) == "file" then
-                        local result = adofile(filepath, filepath) or true
+                        local result = edofile(filepath, filepath) or true
                         apackage.loaded[modname] = result
                         return result
                     end
@@ -961,7 +961,7 @@ function archRuntime(Environment)
             end
         end
     end
-
+    
     -- And, of course, implement _G.
     Environment._G = Environment
 
