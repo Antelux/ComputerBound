@@ -44,9 +44,6 @@ This precaution can likely be ignored once I do release the mod fully.
 
 # Credits
 
-* A large amount of the mod's art assets were made by donpapillon. Massive thanks for such awesome stuff!
-- Link to his Starbound profile page: https://community.playstarbound.com/members/donpapillon.215443/
+* A large amount of the mod's art assets were made by donpapillon. Massive thanks for such awesome stuff! Link to his Starbound profile page: https://community.playstarbound.com/members/donpapillon.215443/
 
-* I used two websites for creation of the mod logo, both of which are listed below:
-- https://logomakr.com
-- http://www5.flamingtext.com
+* I used two websites for creation of the mod logo, both of which are listed next: https://logomakr.com and http://www5.flamingtext.com
