@@ -1,3 +1,5 @@
+![](/_cbimage?raw=true)
+
 # ComputerBound
 This is a mod I've been working on for about a year now, which adds in programmable computers to the game Starbound.
 As of now, it's functional and well, with a lot of final designs for stuff taking place and being implemented.
