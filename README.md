@@ -24,7 +24,8 @@ Your starbound.config can be found in your storage folder, where the option can 
 
 Unfortunately, it's required because there's no other way of writing files to the computer. Disabling the option gives
 me access to the io library and some other neat stuff. As far as how bad it is? For this mod, it should be impossible
-for any user to access these bindings, even at the administrator level (at least from the vanilla version of the mod).
+for any user on a computer in game to access these bindings, even at the administrator level (at least from this version
+of the mod and, hopefully, all other versions).
 
 I think I can safely say that even as the mod is, the most harmful thing any user can do to the server is make the computer
 object crash or temporarily stall other objects running Lua scripts. While both these things are annoying, they are far from
@@ -34,7 +35,7 @@ the mod to be as server-safe as possible, since that is a primary goal for me in
 So where does the real danger in disabling this option come from, if not from the mod itself? From other mods, of course.
 If you're going to disable this option, please be wary of other mods you have installed. Generally (from my experience),
 mods from the official Starbound mod forum should be OK and not be checking for the functions that come along with disabling
-safeScripts. Just be careful and ensure that the mod is trustworthy (perhaps have a look through its code, even).
+safeScripts. Just be careful and ensure that other mods are trustworthy (perhaps have a look through its code, even).
 
 Other than that, it shouldn't be inherently harmful to use this mod. Though, if some kind of security exploit is found, be
 sure to contact me in some way with the details, since such an exploit is a serious problem.
@@ -46,4 +47,4 @@ This precaution can likely be ignored once I do release the mod fully.
 
 * A large amount of the mod's art assets were made by donpapillon. Massive thanks for such awesome stuff! Link to his Starbound profile page: https://community.playstarbound.com/members/donpapillon.215443/
 
-* I used two websites for creation of the mod logo, both of which are listed next: https://logomakr.com and http://www5.flamingtext.com
+* I used two websites for creation of the mod logo: https://logomakr.com and http://www5.flamingtext.com.
